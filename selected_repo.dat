@@ -1,0 +1,10 @@
+13233158
+./cloned_repo/obs-studio/plugins/obs-nvenc/nvenc-properties.c
+./cloned_repo/obs-studio/frontend/widgets/OBSBasic_SceneCollections.cpp
+./cloned_repo/obs-studio/libobs/media-io/video-frame.c
+
+# We are using the OBS github repository found here, persist it with ID 501 in init-redis: https://github.com/obsproject/obs-studio
+# Pull Requests Associated to these files, showing their bugs
+3. https://github.com/obsproject/obs-studio/pull/12825
+4. https://github.com/obsproject/obs-studio/pull/12628
+5. https://github.com/obsproject/obs-studio/pull/11803
