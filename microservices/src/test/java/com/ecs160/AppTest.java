@@ -6,18 +6,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import com.ecs160.annotations.Endpoint;
-import com.ecs160.annotations.Microservice;
 import com.ecs160.microservices.BugFinderMicroservice;
 import com.ecs160.microservices.IssueComparatorMicroservice;
 import com.ecs160.microservices.IssueSummarizerMicroservice;
 
 public class AppTest 
 {
-    @Microservice
     public static class DummyService {
-        @com.ecs160.annotations.Endpoint(url = "/dummy")
+        @GetMapping(value = "/dummy")
         public String doSomething(String input) {
             return "ok";
         }
@@ -26,12 +24,12 @@ public class AppTest
     @Test
     public void dummyService_shouldHaveAnnotations() throws Exception {
         // verify class annotation
-        assertTrue(DummyService.class.isAnnotationPresent(Microservice.class));
+        // assertTrue(DummyService.class.isAnnotationPresent(Microservice.class));
 
         // verify method and endpoint url
         Method m = DummyService.class.getDeclaredMethod("doSomething", String.class);
-        assertTrue(m.isAnnotationPresent(Endpoint.class));
-        assertEquals("/dummy", m.getAnnotation(Endpoint.class).url());
+        assertTrue(m.isAnnotationPresent(GetMapping.class));
+        assertEquals("/dummy", m.getAnnotation(GetMapping.class).value());
     }
 
     /*
@@ -44,10 +42,10 @@ public class AppTest
         // IssueComparatorMicroservice
         Class<?> comparator = IssueComparatorMicroservice.class;
         assertNotNull(comparator);
-        assertTrue(comparator.isAnnotationPresent(Microservice.class));
+        // assertTrue(comparator.isAnnotationPresent(Microservice.class));
         Method checkEquiv = comparator.getMethod("checkEquivalence", String.class);
-        assertTrue(checkEquiv.isAnnotationPresent(Endpoint.class));
-        assertEquals("/check_equivalence", checkEquiv.getAnnotation(Endpoint.class).url());
+        assertTrue(checkEquiv.isAnnotationPresent(GetMapping.class));
+        assertEquals("/check_equivalence", checkEquiv.getAnnotation(GetMapping.class).value());
     }
 
     @Test
@@ -55,10 +53,10 @@ public class AppTest
         // BugFinderMicroservice
         Class<?> bugFinder = BugFinderMicroservice.class;
         assertNotNull(bugFinder);
-        assertTrue(bugFinder.isAnnotationPresent(Microservice.class));
+        // assertTrue(bugFinder.isAnnotationPresent(Microservice.class));
         Method findBugs = bugFinder.getMethod("findBugs", String.class);
-        assertTrue(findBugs.isAnnotationPresent(Endpoint.class));
-        assertEquals("/find_bugs", findBugs.getAnnotation(Endpoint.class).url());
+        assertTrue(findBugs.isAnnotationPresent(GetMapping.class));
+        assertEquals("/find_bugs", findBugs.getAnnotation(GetMapping.class).value());
 
     }
 
@@ -67,9 +65,9 @@ public class AppTest
         // IssueSummarizerMicroservice
         Class<?> issueSummarizer = IssueSummarizerMicroservice.class;
         assertNotNull(issueSummarizer);
-        assertTrue(issueSummarizer.isAnnotationPresent(Microservice.class));
+        // assertTrue(issueSummarizer.isAnnotationPresent(Microservice.class));
         Method summarizeIssue = issueSummarizer.getMethod("summarizeIssue", String.class);
-        assertTrue(summarizeIssue.isAnnotationPresent(Endpoint.class));
-        assertEquals("/summarize_issue", summarizeIssue.getAnnotation(Endpoint.class).url());
+        assertTrue(summarizeIssue.isAnnotationPresent(GetMapping.class));
+        assertEquals("/summarize_issue", summarizeIssue.getAnnotation(GetMapping.class).value());
     }
 }
