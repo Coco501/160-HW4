@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IssueSummarizerMicroservice {
     @GetMapping(value = "/summarize_issue")
-    public String summarizeIssue(@RequestParam String issueJson) {
+    public String summarizeIssue(@RequestParam("input") String issueJson) {
         String prompt = "Summarize this issue description and title into the following format: { \"bug_type\": \"<type>\", \"line\": <single_line_number>, \"description\": \"<description_of_bug>\", \"filename\": \"<filename>\" }. Here is the issue:\n\n\n" + issueJson;
         
         return OllamaInterfacer.invokeOllama(prompt);
