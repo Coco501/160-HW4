@@ -8,7 +8,7 @@ cd ..
 
 cd microservices
 mvn clean install
-mvn exec:java &
+mvn spring-boot:run &
 cd ..
 
 sleep 20 # Wait for microservices to start
