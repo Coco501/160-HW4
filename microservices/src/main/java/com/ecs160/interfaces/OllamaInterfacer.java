@@ -14,8 +14,8 @@ public class OllamaInterfacer {
     private static final Ollama ollama = new Ollama("http://localhost:11434/");
 
     static {
-        // Set ollama timeout to 60 seconds, so it has time to boot up on first request
-        ollama.setRequestTimeoutSeconds(60);
+        // Set ollama timeout to 600 seconds, so it has time to boot up on first request, just to be safe
+        ollama.setRequestTimeoutSeconds(600);
     }
 
     public static String invokeOllama(String prompt) {
