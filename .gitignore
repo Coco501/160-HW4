@@ -1,4 +1,5 @@
 target/
+cloned_repo/
 
 # Compiled class file
 *.class
