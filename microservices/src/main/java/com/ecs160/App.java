@@ -1,11 +1,14 @@
 package com.ecs160;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
+
+@SpringBootApplication
 public class App 
 {
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println( "Hello from the microservices project!" );
-        Launcher launcher = new Launcher();
-        launcher.launch(8080);
+        System.out.println("Hello from the microservices project!");
+        SpringApplication.run(App.class, args);
     }
 }
