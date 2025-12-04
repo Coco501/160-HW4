@@ -114,7 +114,7 @@ public class App {
     }
 
     private static String issueSummarizer(Issue issue) throws Exception {
-        String url = "http://localhost:8080/summarize_issue";
+        String url = "http://localhost:30000/summarize_issue";
 
         // Build a single string representation of the issue for the microservice
         String issueContent = issue.getTitle() + "\n" + issue.getDescription();
@@ -124,7 +124,7 @@ public class App {
     }
 
     private static String bugFinder(String filename) throws Exception {
-        String url = "http://localhost:8080/find_bugs";
+        String url = "http://localhost:30000/find_bugs";
 
         // Load the file content as a string
         String fileContent = Files.readString(Paths.get(filename));
@@ -137,7 +137,7 @@ public class App {
     }
 
     private static JsonObject issueComparator(JsonArray issueList1, JsonArray issueList2) throws Exception {
-        String url = "http://localhost:8080/check_equivalence";
+        String url = "http://localhost:30000/check_equivalence";
 
         // Convert the two lists into one string, separated by a marker the microservice knows
         String combined = issueList1.toString() + "#####" + issueList2.toString();
