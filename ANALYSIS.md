@@ -29,3 +29,13 @@ Still, here are some of the more interesting "common issues" (or hallucinations)
 
 lol...
 ```
+
+```
+-----COMMON ISSUES FOUND-----
+{
+  "filename": "obs-deps",
+  "bug_type": "missing_required",
+  "line": 2,
+  "description": "The test for `req` is failing because the new feature requires a required dependency that wasn\u0027t included in the pull request."
+}   
+```
